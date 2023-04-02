@@ -1,0 +1,44 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #06202a;
+}
+
+.main {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+}
+
+.main input {
+    border: 2px solid white;
+    border-radius: 15px;
+    width: 300px;
+    max-width: 300px;
+    margin-left: -8rem;
+    outline: none;
+    color: white;
+    padding: 0.5rem;
+    /* border-color: white; */
+}
+
+input::placeholder {
+    color: white;
+    /* padding: 1rem; */
+}
+
+.text {
+    font-family: "Bebas Neue", cursive;
+    color: white;
+    letter-spacing: .2rem;
+    font-size: 2rem;
+}
+
+.options a {
+    color: white;
+}
+
+.sunny {
+    color: white;
+}

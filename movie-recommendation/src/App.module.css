@@ -1,0 +1,9 @@
+:root {
+    --secondary-text-color:#D1D5DB;
+    --primary-background-color:#06202A;
+    --primary-text-color:white;
+}
+
+body {
+    overflow-x: hidden;
+}

@@ -1,0 +1,33 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.navBar {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /* margin-left: 1rem; */
+    /* margin-right: 1rem; */
+    color: white;
+    overflow-x: auto;
+    /* if a user double clicks on the text, it won't be selected */
+    user-select: none;
+    padding: 1rem;
+}
+
+.navbar::-webkit-scrollbar {
+    display: none;
+}
+
+.navBar > h2 {
+    font-family: "Nunito",sans-serif;
+    transition: all 0.2s;
+}
+
+.navBar > h2:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
