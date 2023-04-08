@@ -18,9 +18,21 @@ import { Link } from 'react-router-dom';
 const Header = () => {
     const [lightTheme, setLightTheme] = useState(false)
 
-    var theme = lightTheme ? <WbSunnyIcon /> : <BrightnessIcon />
+    var theme = lightTheme ? <BrightnessIcon /> : <WbSunnyIcon />
     
     const updateTheme = () => {
+
+        if (lightTheme) {
+            document.documentElement.style.setProperty('--primary-text-color', '#FFFFFF');
+            document.documentElement.style.setProperty('--primary-background-color', '#06202A');
+            document.documentElement.style.setProperty('--secondary-text-color', '#D1D5DB');
+        }
+        else {
+            document.documentElement.style.setProperty('--primary-text-color', '#000000');
+            document.documentElement.style.setProperty('--primary-background-color', '#FFFFFF');
+            document.documentElement.style.setProperty('--secondary-text-color', '#000000');
+        }
+
         setLightTheme(!lightTheme)
     }
 
