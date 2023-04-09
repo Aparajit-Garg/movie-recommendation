@@ -13,10 +13,12 @@ import HomeIcon from '@mui/icons-material/Home';
 // x icon showing clear symbol
 import ClearIcon from '@mui/icons-material/Clear'
 import { Link } from 'react-router-dom';
-
+import { useContext } from 'react';
+import {moviesContext} from '../../context/Movies';
 
 const Header = () => {
-    const [lightTheme, setLightTheme] = useState(false)
+    const [,, lightTheme, setLightTheme, movieId, setMovieId] = useContext(moviesContext);
+    // const [lightTheme, setLightTheme] = useState(false)
 
     var theme = lightTheme ? <BrightnessIcon /> : <WbSunnyIcon />
     

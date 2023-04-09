@@ -1,21 +1,26 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import classes from './NavBar.module.css'
+import {moviesContext} from '../../context/Movies';
+import requests from '../../requests';
+
 
 const NavBar = props => {
+
+    const [selectedGenre, setSelectedGenre] = useContext(moviesContext);
 
     const buttonClick = () => {
         console.log("clicked");
     }
     return (
         <div className={classes.navBar}>
-            <h2 onClick={buttonClick}>Trending</h2>
-            <h2 onClick={buttonClick}>Top Rated</h2>
-            <h2 onClick={buttonClick}>Comedy</h2>
-            <h2 onClick={buttonClick}>Horror</h2>
-            <h2 onClick={buttonClick}>Action</h2>
-            <h2 onClick={buttonClick}>SciFi</h2>
-            <h2 onClick={buttonClick}>Mystery</h2>
-            <h2 onClick={buttonClick}>Romance</h2>
+            <h2 onClick={() => setSelectedGenre(requests.fetchTrending)}>Trending</h2>
+            <h2 onClick={() => setSelectedGenre(requests.fetchTopRated)}>Top Rated</h2>
+            <h2 onClick={() => setSelectedGenre(requests.fetchComedy)}>Comedy</h2>
+            <h2 onClick={() => setSelectedGenre(requests.fetchHorror)}>Horror</h2>
+            <h2 onClick={() => setSelectedGenre(requests.fetchAction)}>Action</h2>
+            <h2 onClick={() => setSelectedGenre(requests.fetchScifi)}>SciFi</h2>
+            <h2 onClick={() => setSelectedGenre(requests.fetchMystery)}>Mystery</h2>
+            <h2 onClick={() => setSelectedGenre(requests.fetchRomance)}>Romance</h2>
 
         </div>
     );
