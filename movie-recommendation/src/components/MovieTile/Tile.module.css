@@ -10,7 +10,7 @@
     user-select: none;
 }
 
-.movie_tile :hover{
+.movie_tile:hover{
     transform: scale(1.09);
 }
 

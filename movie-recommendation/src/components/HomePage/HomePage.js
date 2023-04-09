@@ -3,6 +3,7 @@ import {moviesContext} from '../../context/Movies';
 import api from '../../axios_base';
 import Tile from '../MovieTile/Tile';
 import classes from './HomePage.module.css';
+import FlipMove from "react-flip-move";
 
 const HomePage = props => {
     const [movies, setMovies] = useState([]);
@@ -19,9 +20,11 @@ const HomePage = props => {
 
     return (
         <div className={classes.main}>
-            {movies.length > 0 && movies.map(movie => (
-                <Tile movie={movie} />
-            ))}
+            <FlipMove>
+                {movies.length > 0 && movies.map(movie => (
+                    <Tile movie={movie} />
+                ))}
+            </FlipMove>
         </div>
     );
 };
