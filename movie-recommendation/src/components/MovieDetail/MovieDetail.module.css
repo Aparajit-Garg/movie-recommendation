@@ -1,0 +1,27 @@
+/* 
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+} */
+
+
+.first__section {
+    width: 100%;
+    padding: 2rem 0.5rem 0.5rem;
+    grid-column-gap: 2rem;
+    column-gap: 2rem;
+    display: flex;
+    justify-content: center;
+}
+
+.movie_poster > img{
+    max-width: 400px;
+    max-height: 400px;
+    object-fit: contain;
+}
+
+.movie_info {
+    display: flex;
+    flex-direction: column;
+}
