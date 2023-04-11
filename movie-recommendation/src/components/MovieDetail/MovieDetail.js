@@ -72,11 +72,9 @@ const MovieDetail = props => {
             </div>
 
             <div className={classes.movie_info}>
-                <span className={classes.first_line}>
-                    <span>
-                        {movieDetail?.original_title}({movieDetail?.release_date.substring(0, 4)})
-                    </span>
-                    <span>
+                <div className={classes.first_line}>
+                    <h2>{movieDetail?.original_title}({movieDetail?.release_date.substring(0, 4)})</h2>
+                    <span className={classes.rating}>
                         <span>
                             <StarRateIcon style={{color:"#f9d71c", display:"inline-block", verticalAlign:"middle"}} />
                         </span>
@@ -84,35 +82,37 @@ const MovieDetail = props => {
                             {movieDetail?.vote_average}/10
                         </span>
                     </span>
-                </span>
+                </div>
                 
 
-                <span className={classes.second_line}>
-                    <li>{movieDetail?.release_date}</li>
-                    <li>{movieDetail?.runtime}</li>
-                    <li>{movieDetail?.genres[0].name}</li>
-                    <li>{movieDetail?.genres[1].name}</li>
-                    <li>{movieDetail?.genres[2].name}</li>
-                </span>
+                <div className={classes.second_line}>
+                    <span>{movieDetail?.release_date} | {movieDetail?.runtime} mins | </span>
+                    <span> {movieDetail?.genres[0].name} {movieDetail?.genres[1].name} {movieDetail?.genres[2].name}</span>
+                </div>
 
-                <div className={classes.second_section}>
-                    <span>Synopsis</span>
-                    <span> {movieDetail?.overview}</span>
+                <div className={classes.synopsis}>
+                    <h4>Synopsis</h4>
+                </div>
+                <div className={classes.overview}>
+                    <p> {movieDetail?.overview}</p>
                 </div>
                 <div className={classes.third_section}>
                     <button>Add to playlist</button>
                 </div>
                 <div className={classes.fourth_section}>
                     <ArrowBackIcon style={{color: "#FFFF", display: "inline-block", verticalAlign: "middle"}}/>
-                    <Link style={{textDecoration: "none"}} to="/">
+                    <Link className={classes.link} style={{textDecoration: "none"}} to="/">
                         <h5>Back to Home</h5>
                     </Link>
                 </div>
             </div>
         </div>
 
-        <div className={cast}>
-            <h3> Cast</h3>
+        <div className={classes.cast}>
+            <h3> CAST</h3>
+            <div className={classes.castCard}>
+
+            </div>
         </div>
 
         <div className={classes.similarMovies}>
