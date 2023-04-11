@@ -41,15 +41,19 @@ const MovieDetail = props => {
             // movie/{movie_id}/credits?api_key=<<api_key>>&language=en-US
             const url = `movie/${movieId}/credits?api_key=${API_KEY}&language=en-US`;
             const response = await api.get(url);
-            // setCast()
             console.log("CAST: ");
-            console.log(response);
+            console.log(response.data.cast);
+            setCast(response.data.cast);
         }
 
         getMovie();
         getSimilarMovies();
         getCast();
     },[movieId]);
+
+    const updateMovieId = id => {
+        setMovieId(id);
+    }
 
     console.log("HERE CHECKING: ", movieId);
 
@@ -100,7 +104,7 @@ const MovieDetail = props => {
                     <button>Add to playlist</button>
                 </div>
                 <div className={classes.fourth_section}>
-                    <ArrowBackIcon style={{color: "#FFFF", display: "inline-block", verticalAlign: "middle"}}/>
+                    <ArrowBackIcon style={{color: "var(--secondary-text-color)", display: "inline-block", verticalAlign: "middle"}}/>
                     <Link className={classes.link} style={{textDecoration: "none"}} to="/">
                         <h5>Back to Home</h5>
                     </Link>
@@ -111,12 +115,26 @@ const MovieDetail = props => {
         <div className={classes.cast}>
             <h3> CAST</h3>
             <div className={classes.castCard}>
-
+                {cast?.filter(cas => cas.order < 12).map(ca =>
+                    <div className={classes.cards}>
+                        <img src={`${IMAGE_PATH}${ca.profile_path}`} />
+                        <h4>{ca.name}</h4>
+                        <h5>{ca.character}</h5>
+                    </div>)}
             </div>
         </div>
 
         <div className={classes.similarMovies}>
-            <h3> Similar Movies </h3>
+            <h3> SIMILAR MOVIES </h3>
+            <div className={classes.similarMovieCard}>
+                {similarMovies?.map(movie => 
+                    <div key={movie.id} className={classes.similarCard} onClick={() => updateMovieId(movie.id)}>
+                        <img src={`${IMAGE_PATH}${movie.poster_path}`} />
+                        <h4>{movie.original_title}</h4>
+                    </div>
+                )}
+            </div>
+            
         </div>
         </>
     )
