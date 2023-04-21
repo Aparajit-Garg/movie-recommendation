@@ -16,7 +16,7 @@
     border-radius: 15px;
     width: 300px;
     max-width: 300px;
-    margin-left: -8rem;
+    /* margin-left: -8rem; */
     outline: none;
     color: var(--primary-text-color);
     padding: 0.5rem;
@@ -42,4 +42,25 @@ input::placeholder {
 .sunny {
     color: var(--primary-text-color);
     cursor: pointer;
+}
+
+@media screen and (max-width:700px) {
+    .main {
+        /* padding: 0px 0px; */
+        flex-direction: column;
+        align-items: center;
+        row-gap: 0.75rem;
+    }
+
+    .options {
+        order: -1;
+    }
+
+    .search
+    {
+        margin: 0px 0px;
+        left:0;
+        top:150px;
+    }
+
 }

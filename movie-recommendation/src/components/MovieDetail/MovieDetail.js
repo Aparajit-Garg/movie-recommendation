@@ -115,7 +115,7 @@ const MovieDetail = props => {
         <div className={classes.cast}>
             <h3> CAST</h3>
             <div className={classes.castCard}>
-                {cast?.filter(cas => cas.order < 12).map(ca =>
+                {cast?.filter(cas => cas.order < 9).map(ca =>
                     <div className={classes.cards}>
                         <img src={`${IMAGE_PATH}${ca.profile_path}`} />
                         <h4>{ca.name}</h4>

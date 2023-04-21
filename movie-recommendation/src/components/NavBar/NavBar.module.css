@@ -31,3 +31,11 @@
     cursor: pointer;
     transform: scale(1.1);
 }
+
+@media screen and (max-width:900px) {
+    .navBar > h2:not(:first-child) {
+        margin-left:40px;
+        margin-right: 40px;
+        white-space: nowrap;
+    }
+}

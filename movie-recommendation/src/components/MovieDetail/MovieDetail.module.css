@@ -158,3 +158,22 @@
     cursor: pointer;
     transform: scale(1.2);
 }
+
+@media screen and (max-width:700px) {
+    .first__section {
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width:100%;
+    }
+
+    
+    .similarMovies {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+}

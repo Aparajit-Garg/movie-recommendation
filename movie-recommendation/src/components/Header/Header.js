@@ -41,7 +41,7 @@ const Header = () => {
     return (
         <div className={classes.main}>
             <span className={classes.text}>MOVIEVERSE</span>
-            <input type="text" placeholder="Search for movies using keywords..."></input>
+            <input className={classes.search} type="text" placeholder="Search for movies using keywords..."></input>
             <div className={classes.options}>
                 <span className={classes.sunny} onClick={updateTheme}>
                     {theme}
