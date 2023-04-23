@@ -3,22 +3,27 @@
     padding: 0;
     box-sizing: border-box;
     background-color: var(--primary-background-color);
+    user-select: none;
 }
 
 .main {
     display: flex;
     justify-content: space-between;
     padding: 1rem;
+    align-items: center;
+    position: sticky;
+    top: 0px;
+    z-index: 999;
 }
 
-.main input {
+.main > form > input {
     border: 2px solid var(--primary-text-color);
     border-radius: 15px;
     width: 300px;
     max-width: 300px;
     /* margin-left: -8rem; */
     outline: none;
-    color: var(--primary-text-color);
+    color: var(--secondary-text-color);
     padding: 0.5rem;
     /* border-color: white; */
 }
@@ -26,6 +31,38 @@
 input::placeholder {
     color: (--secondary-text-color);
     /* padding: 1rem; */
+}
+
+.searchResults {
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    max-height: 300px;
+    overflow-y: auto;
+    top:60px;
+    left:35%;
+    row-gap:0.5rem;
+    border:1px solid var(--secondary-text-color);
+    position: absolute;
+}
+
+.search_section
+{
+    width:inherit;
+    max-height:100px;
+    display: flex;
+    border:1px solid var(--primary-background-color);
+}
+
+.search_section:hover{
+    border:1px solid var(--secondary-text-color);
+    cursor:pointer;
+}
+
+.search_section > img
+{
+    max-width:200px;
+    max-height: inherit;
 }
 
 .text {

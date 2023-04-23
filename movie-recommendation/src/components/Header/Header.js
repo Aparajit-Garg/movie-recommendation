@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useRef} from 'react';
 import classes from './Header.module.css';
 
 // playlist icon
@@ -17,13 +17,20 @@ import 'react-toastify/dist/ReactToastify.css';
 import { Link } from 'react-router-dom';
 import { useContext } from 'react';
 import {moviesContext} from '../../context/Movies';
+import api from '../../axios_base';
+// import SearchMovies from '../SearchMovies/SearchMovies';
+
+const API_KEY = process.env.REACT_APP_API_KEY;
+const IMAGE_PATH = "https://image.tmdb.org/t/p/original/";
 
 const Header = () => {
     const [,, lightTheme, setLightTheme, movieId, setMovieId] = useContext(moviesContext);
     // const [lightTheme, setLightTheme] = useState(false)
     const [searchText, setSearchText] = useState('');
-
+    const [searchResults, setSearchResults] = useState([]);
     var theme = lightTheme ? <BrightnessIcon /> : <WbSunnyIcon />
+    const inputRef = useRef();
+    const resultRef = useRef();
     
     const updateTheme = () => {
 
@@ -45,11 +52,34 @@ const Header = () => {
         event.preventDefault();
 
         if (searchText.length > 0) {
-            console.log("Entered character: ", searchText);
+
+            const getResults = async () => {
+                console.log(`${api}search/movie?&query=${searchText}&api_key=${API_KEY}`);
+                // const url = 
+                const res = await api.get(`search/movie?&query=${searchText}&api_key=${API_KEY}`);
+                // const data = await res.json();
+                console.log(res);
+                setSearchResults(res.data.results);
+                inputRef.current.disabled = "disabled";
+                resultRef.current.style.display = "block";
+            }
+            getResults();
         }
         else {
             toast.error("Please enter 1 character");
         }
+    }
+
+    const handleClick = () => {
+        resultRef.current.style.display = "none";
+        setSearchResults([]);
+        inputRef.current.removeAttribute("disabled");
+    }
+
+    const setSearchMovieDetails = (id) => {
+        setMovieId(id);
+        handleClick();
+        setSearchText("");
     }
 
     return (
@@ -57,9 +87,26 @@ const Header = () => {
         <div className={classes.main}>
             <span className={classes.text}>MOVIEVERSE</span>
             <form onSubmit={handleSubmit}>
-                <input className={classes.search} value={searchText} onChange = {(e) => setSearchText(e.target.value)}type="text" placeholder="Search for movies using keywords..."></input>    
+                <input ref={inputRef} className={classes.search} value={searchText} onChange = {(e) => setSearchText(e.target.value)}type="text" placeholder="Search for movies using keywords..."></input>    
             </form>
-            {/* <input className={classes.search} type="text" placeholder="Search for movies using keywords..."></input> */}
+
+            <div ref={resultRef} className={classes.searchResults}>
+                {searchResults.length > 0 && <ClearIcon onClick={handleClick} style={{ color:"var(--secondary-text-color)",alignSelf:"flex-end",cursor:"pointer" }} />}
+                {searchResults?.map(res => (
+                    // <SearchMovies value = {res} />
+                    <Link style={{textDecoration:"none"}} to="/moviedetail" >
+                        <div onClick={() => setSearchMovieDetails(res.id)} className={classes.search_section}>
+                            <img src = {`${IMAGE_PATH}${res.backdrop_path || res.poster_path}`} alt= "No poster" />
+                            <div className={classes.details}>
+                                <h4>{res.original_title || res.title}</h4>
+                                <h5>{res.release_date}</h5>
+                            </div>
+
+                        </div>
+                    </Link>
+                ))}
+            </div>
+
             <div className={classes.options}>
                 <span className={classes.sunny} onClick={updateTheme}>
                     {theme}
