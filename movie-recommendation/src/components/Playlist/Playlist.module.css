@@ -1,0 +1,72 @@
+
+.empty {
+    width: 300px;
+    height: 300px;
+    font-size: 1.2rem;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-text-color);
+}
+
+.playlist {
+    margin: 2rem;
+    color: var(--primary-text-color);
+    display: flex;
+    align-items: center;
+    opacity: 0.8;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.watch_button {
+    display: flex;
+    gap: 2rem;
+    width: 100vw;
+    justify-content: center;
+    color: var(--primary-text-color);
+    padding: 1rem;
+    border-bottom: 1px dotted var(--primary-text-color);
+}
+
+.watch_button > button {
+    all: unset;
+    padding: 0.8rem;
+    border: 1px solid var(--primary-text-color);
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.cards {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.item {
+    padding: 0.2rem 0.6rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+    border: 1px solid var(--primary-text-color);
+    border-radius: 25px;
+}
+
+.item > img {
+    width: 200px;
+    height: 300px;
+    border-radius: 15px;
+}
+
+.action_icons {
+    margin-top: 0.5rem;
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}

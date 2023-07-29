@@ -5,6 +5,7 @@ import NavBar from './components/NavBar/NavBar';
 import HomePage from './components/HomePage/HomePage';
 import MovieDetail from './components/MovieDetail/MovieDetail';
 import  {Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import Playlist from './components/Playlist/Playlist';
 
 function App() {
 	return (
@@ -14,6 +15,7 @@ function App() {
 				<Routes>
 					<Route path="/" element={[<NavBar />, <HomePage />]} exact />
 					<Route path="/movieDetail" element={<MovieDetail />} exact />
+                    <Route path="/playlist" element={<Playlist />} exact />
 				</Routes>
 			</div>
 		</Router>

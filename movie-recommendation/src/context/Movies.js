@@ -1,7 +1,7 @@
 import React, {useState, createContext} from 'react';
 import requests from '../requests';
 
-export const moviesContext = createContext ();
+export const moviesContext = createContext();
 
 
 function MoviesProvider(props) {
@@ -10,6 +10,7 @@ function MoviesProvider(props) {
     const [selectedGenre, setSelectedGenre] = useState(requests.fetchTrending);
     const [movieId, setMovieId] = useState(0);
     const [myMovies, setMyMovies] = useState([]);
+    const [playlist, setPlaylist] = useState([]);
 
     return (
         <moviesContext.Provider value = {[
@@ -20,7 +21,9 @@ function MoviesProvider(props) {
             movieId,
             setMovieId,
             myMovies,
-            setMyMovies
+            setMyMovies,
+            playlist,
+            setPlaylist
         ]}>
             {props.children}
         </moviesContext.Provider>
