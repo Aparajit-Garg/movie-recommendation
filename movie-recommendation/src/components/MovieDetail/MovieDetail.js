@@ -16,8 +16,8 @@ const MovieDetail = props => {
     const IMAGE_PATH = "https://image.tmdb.org/t/p/original/";
     // console.log("Checking movie id here: ", movieId);
     let storageData = JSON.parse(localStorage.getItem('playlist'))
-    console.log('stored data: ', storageData)
-    console.log('playlist data: ', playlist)
+    // console.log('stored data: ', storageData)
+    // console.log('playlist data: ', playlist)
     const [isPresent, setIsPresent] = useState(storageData?.length > 0 ? storageData.filter(value => value.title === movieDetail?.original_title).length > 0 : false)
 
     useEffect(() => {
@@ -67,7 +67,7 @@ const MovieDetail = props => {
     }
     
     const addToPlaylist = () => {
-        console.log(movieDetail?.original_title)
+        // console.log(movieDetail?.original_title)
         setPlaylist(prev => [...prev, ...[{
             title: movieDetail?.original_title,
             poster: IMAGE_PATH + movieDetail?.poster_path,
@@ -78,7 +78,7 @@ const MovieDetail = props => {
     }
 
     const removeFromPlaylist = () => {
-        console.log(playlist)
+        // console.log(playlist)
         let updatedPlaylist = playlist.filter(value => value.title !== movieDetail?.original_title)
         setPlaylist(updatedPlaylist)
         localStorage.setItem('playlist', JSON.stringify(updatedPlaylist))

@@ -10,7 +10,7 @@ const Tile = forwardRef((props, ref) => {
     const [,,,,movieId, setMovieId] = useContext(moviesContext);
 
     const handleClick = () => {
-        console.log("movie id: ", props.movie.id);
+        // console.log("movie id: ", props.movie.id);
         setMovieId(props.movie.id);
     }
 

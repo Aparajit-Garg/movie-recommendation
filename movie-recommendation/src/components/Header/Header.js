@@ -54,11 +54,11 @@ const Header = () => {
         if (searchText.length > 0) {
 
             const getResults = async () => {
-                console.log(`${api}search/movie?&query=${searchText}&api_key=${API_KEY}`);
+                // console.log(`${api}search/movie?&query=${searchText}&api_key=${API_KEY}`);
                 // const url = 
                 const res = await api.get(`search/movie?&query=${searchText}&api_key=${API_KEY}`);
                 // const data = await res.json();
-                console.log(res);
+                // console.log(res);
                 setSearchResults(res.data.results);
                 inputRef.current.disabled = "disabled";
                 resultRef.current.style.display = "block";

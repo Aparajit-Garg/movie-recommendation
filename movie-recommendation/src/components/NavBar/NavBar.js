@@ -8,9 +8,6 @@ const NavBar = props => {
 
     const [selectedGenre, setSelectedGenre] = useContext(moviesContext);
 
-    const buttonClick = () => {
-        console.log("clicked");
-    }
     return (
         <div className={classes.navBar}>
             <h2 onClick={() => setSelectedGenre(requests.fetchTrending)}>Trending</h2>

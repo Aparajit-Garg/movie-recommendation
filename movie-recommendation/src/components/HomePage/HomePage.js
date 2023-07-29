@@ -12,7 +12,7 @@ const HomePage = props => {
     useEffect( () => {
         const fetchMovies = async () => {
             const response = await api.get(selectedGenre);
-            console.log(response);
+            // console.log(response);
             setMovies(response.data.results); 
         }
         fetchMovies();

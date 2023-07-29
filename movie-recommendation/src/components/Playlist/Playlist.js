@@ -12,14 +12,14 @@ const Playlist = () => {
     const [toWatch, setToWatch] = useState(true)
     const [toWatchList, setToWatchList] = useState(storageData?.length > 0 ? storageData.filter(item => item.status === 'to_watch') : [])
     const [watchedList, setWatchedList] = useState(storageData?.length > 0 ? storageData.filter(item => item.status === 'watched') : [])
-    console.log(playlist)
+    // console.log(playlist)
 
     useEffect(() => {
         storageData = JSON.parse(localStorage.getItem('playlist'))
         setPlaylist(storageData?.length > 0 ? storageData : [])
         setToWatchList(storageData?.length > 0 ? storageData.filter(item => item.status === 'to_watch') : [])
         setWatchedList(storageData?.length > 0 ? storageData.filter(item => item.status === 'watched') : [])
-        console.log(toWatchList)
+        // console.log(toWatchList)
     }, [])
 
     if (playlist.length === 0) {
@@ -41,7 +41,7 @@ const Playlist = () => {
         localStorage.setItem('playlist', JSON.stringify(storageData))
         setPlaylist(storageData)
         setToWatchList(prev => prev.filter(item => item.title !== movieTitle))
-        console.log(storageData)
+        // console.log(storageData)
     }
 
     const deleteMovieToWatch = (movieTitle) => {
