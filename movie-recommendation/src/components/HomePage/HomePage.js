@@ -22,7 +22,7 @@ const HomePage = props => {
         <div className={classes.main}>
             <FlipMove>
                 {movies.length > 0 && movies.map(movie => (
-                    <Tile movie={movie} />
+                    <Tile key={movie} movie={movie} />
                 ))}
             </FlipMove>
         </div>

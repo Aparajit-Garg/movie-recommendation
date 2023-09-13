@@ -94,7 +94,7 @@ const Header = () => {
                 {searchResults.length > 0 && <ClearIcon onClick={handleClick} style={{ color:"var(--secondary-text-color)",alignSelf:"flex-end",cursor:"pointer" }} />}
                 {searchResults?.map(res => (
                     // <SearchMovies value = {res} />
-                    <Link style={{textDecoration:"none"}} to="/moviedetail" >
+                    <Link key={res.id} style={{textDecoration:"none"}} to="/moviedetail" >
                         <div onClick={() => setSearchMovieDetails(res.id)} className={classes.search_section}>
                             <img src = {`${IMAGE_PATH}${res.backdrop_path || res.poster_path}`} alt= "No poster" />
                             <div className={classes.details}>
